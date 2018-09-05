@@ -32,10 +32,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<!--logo and iconic logo start-->
 			<div class="logo">
-				<h1><a href="index.jsp">Mosai<span>c</span></a></h1>
+				<h1><a href="index.html">Mosai<span>c</span></a></h1>
 			</div>
 			<div class="logo-icon text-center">
-				<a href="index.jsp">M </a>
+				<a href="index.html">M </a>
 			</div>
  	 <!-- /w3l-agile -->
 			<!--logo and iconic logo end-->
@@ -43,29 +43,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
-						<li class="active"><a href="index.jsp"><i class="lnr lnr-home"></i><span>Home</span></a></li>
+						<li class="active"><a href="index.html"><i class="lnr lnr-home"></i><span>Home</span></a></li>
 					<!--    <li><a href="radio.html"><i class="camera"></i> <span>Radio</span></a></li> 
 						<li><a href="#" data-toggle="modal" data-target="#myModal1"><i class="fa fa-th"></i><span>Apps</span></a></li> -->  
 						<li><a href="radio.html"><i class="lnr lnr-users"></i> <span>Artists</span></a></li> 
-					 	<li><a href="browse.html"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>						
-					   	<li class="menu-list"><a href="browse.html"><i class="lnr lnr-indent-increase"></i> <span>Browser</span></a>   
-					    		<ul class="sub-menu-list">
+					<!-- 	<li><a href="browse.html"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>			-->			
+					 	<li class="menu-list"><a href="browse.html"><i class="lnr lnr-indent-increase"></i> <span>Browser</span></a>    
+							<ul class="sub-menu-list">
 								<li><a href="browse.html">Artists</a> </li>
 								<li><a href="404.html">Services</a> </li>
 							</ul>
 						</li>
-				<!-- 	<li><a href="blog.html"><i class="lnr lnr-book"></i><span>Blog</span></a></li>
-						<li><a href="typography.html"><i class="lnr lnr-pencil"></i> <span>Typography</span></a></li> -->
+						<li><a href="blog.html"><i class="lnr lnr-book"></i><span>Blog</span></a></li>
+						<li><a href="typography.html"><i class="lnr lnr-pencil"></i> <span>Typography</span></a></li>
 						<li class="menu-list"><a href="#"><i class="lnr lnr-heart"></i>  <span>My Favourities</span></a> 
 							<ul class="sub-menu-list">
 								<li><a href="radio.html">All Songs</a></li>
 							</ul>
 						</li>
-					<!-- <li class="menu-list"><a href="contact.html"><i class="fa fa-thumb-tack"></i><span>Contact</span></a>
+						<li class="menu-list"><a href="contact.html"><i class="fa fa-thumb-tack"></i><span>Contact</span></a>
 							<ul class="sub-menu-list">
 								<li><a href="contact.html">Location</a> </li>
 							</ul>
-						</li>     -->
+						</li>     
 					</ul>
 				<!--sidebar nav end-->
 			</div>
@@ -337,8 +337,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!--//pop-up-box -->
 						<div class="albums">
 								<div class="tittle-head">
-									<h3 class="tittle">New Releases DIVENTERA' NUOVE USCITE <span class="new">New</span></h3>
-									<a href="index.jsp"><h4 class="tittle">See all</h4></a>
+									<h3 class="tittle">New Releases <span class="new">New</span></h3>
+									<a href="index.html"><h4 class="tittle">See all</h4></a>
 									<div class="clearfix"> </div>
 								</div>
 								<div class="col-md-3 content-grid">
@@ -394,8 +394,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 						<div class="albums second">
 										<div class="tittle-head">
-											<h3 class="tittle">Discover DIVENTERA' CONSIGLIATI <span class="new">View</span></h3>
-											<a href="index.jsp"><h4 class="tittle two">See all</h4></a>
+											<h3 class="tittle">Discover <span class="new">View</span></h3>
+											<a href="index.html"><h4 class="tittle two">See all</h4></a>
 											<div class="clearfix"> </div>
 										</div>
 											<div class="col-md-3 content-grid">
@@ -572,7 +572,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- //script for play-list -->
 
 								<!--//video-main-->
-								<!--/app_store--> <!--  
+								<!--/app_store-->
 									  <div class="apps">
 												<h3 class="hd-tittle">Mosaic now available in</h3>
 												<div class="banner-button">
@@ -582,9 +582,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<a href="#"><img src="images/2.png" alt=""></a>
 												</div>
 													<div class="clearfix"></div>
-										</div>   -->
+										</div>
 								  <!--//app_store-->
-						         <!--/start-paricing-tables-->  <!-- 
+						         <!--/start-paricing-tables-->
 									<div class="price-section">
 											<div class="pricing-inner">
 												<h3 class="hd-tittle">Upgrade your Plan</h3>
@@ -619,7 +619,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													</div>
 												</div>
 													<div class="clearfix"></div>
-												</div>   -->
+												</div>
 												<!--//end-pricing-tables-->
 												</div>
 											</div>
@@ -740,12 +740,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!--body wrapper end-->
  	 <!-- /w3l-agile -->
 					</div>
-			  <!--body wrapper end-->  <!-- 
+			  <!--body wrapper end-->
 			     <div class="footer">
 				<div class="footer-grid">
 					<h3>Navigation</h3>
 					<ul class="list1">
-					  <li><a href="index.jsp">Home</a></li>
+					  <li><a href="index.html">Home</a></li>
 					  <li><a href="radio.html">All Songs</a></li>
 					  <li><a href="browse.html">Albums</a></li>
 					  <li><a href="radio.html">New Collections</a></li>
@@ -795,7 +795,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 </div>
 					 <div class="clearfix"> </div>
 				</div>
-			</div>   -->
+			</div>
         <!--footer section start-->
 			<footer>
 			   <p>&copy 2018 Falbo Gianluca </p>
