@@ -22,10 +22,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <!-- Meters graphs -->
 <script src="js/jquery-2.1.4.js"></script>
 
-
+<script src="js/functionUtility.js"></script>
 </head> 
     	 <!-- /w3layouts-agile -->
- <body class="sticky-header left-side-collapsed"  onload="initMap()">
+ <body class="sticky-header left-side-collapsed"  > <!-- onload="initMap()">  -->
     <section>
       <!-- left side start-->
 		<div class="left-side sticky-left-side">
@@ -159,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="menu-right">
 					<div class="profile_details">		
 						  <div class="col-md-4 serch-part">
-								<div id="sb-search" class="sb-search">
+								<div id="sb-search" class="sb-search"   style="display:none"> 
 									<form action="#" method="post">
 
 										<input class="sb-search-input" placeholder="Search" type="search" name="search" id="search">
@@ -212,9 +212,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 											<div class="col-md-4 login-pop">
 												<div id="loginpop"> <a href="#" id="loginButton"><span>Login <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a>
-																	<a class="top-sign" href="#" data-toggle="modal" data-target="#myModal5"><i class="fa fa-sign-in"></i></a>
+																	<!--<div class="col-md-6"><a href="#" id="loginButton"><span>Registrati <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a></div>-->
+																    <a class="top-sign" href="#" data-toggle="modal" data-target="#myModal5"><i class="fa fa-sign-in"></i></a>
 														<div id="loginBox">  
-												<form action="AccessServlet?action=login" method="post" id="loginForm">
+												<!--<form action="AccessServlet?action=login" method="post" id="loginForm"> -->
+												<form  id="loginForm">
 																	<fieldset id="body">
 																		<fieldset>
 																			  <label for="text">username</label>
@@ -222,9 +224,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																		</fieldset>
 																		<fieldset>
 																				<label for="password">Password</label>
-																				<input type="password" name="psw" id="uname">
+																				<input type="password" name="psw" id="psw">
 																		 </fieldset>
-																		<input type="submit" id="login" value="Sign in">
+																		<input type="submit" id="login" value="Sign in" >
 																		<!--  <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label> -->
 																	</fieldset>
 																<span><a href="#">Forgot your password?</a></span>
@@ -332,6 +334,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										removalDelay: 300,
 										mainClass: 'my-mfp-zoom-in'
 									});
+									//$("#b-search").hide();
+									caricaNuoveUscite();
+									
 									});
 							</script>		
 					<!--//pop-up-box -->
@@ -341,10 +346,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a href="index.jsp"><h4 class="tittle">See all</h4></a>
 									<div class="clearfix"> </div>
 								</div>
-								<div class="col-md-3 content-grid">
+						<!--		<div class="col-md-3 content-grid">
 								<a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="images/v1.jpg" title="allbum-name"></a>
 								<a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
-							</div>
+							</div> 
 							<div id="small-dialog" class="mfp-hide">
 								<iframe src="https://player.vimeo.com/video/12985622"></iframe>
 								
@@ -369,8 +374,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 								<a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
 							</div>
-							<div id="small-dialog" class="mfp-hide">
-								<iframe src="https://player.vimeo.com/video/12985622"></iframe>
+					-->		<div id="small-dialog" class="mfp-hide">
+								<iframe src="https://player.vimeo.com/video/12985622"></iframe> <!--
 								
 							</div>
 							<div class="col-md-3 content-grid">
@@ -385,14 +390,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="col-md-3 content-grid last-grid">
 								<a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="images/v8.jpg" title="allbum-name"></a>
-												<a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
+												<a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>  -->
 											</div>
 											<div class="clearfix"> </div>
 										</div>
 					<!--//End-albums-->
 						<!--//discover-view-->
 						
-						<div class="albums second">
+						<div class="albumss second">
 										<div class="tittle-head">
 											<h3 class="tittle">Discover DIVENTERA' CONSIGLIATI <span class="new">View</span></h3>
 											<a href="index.jsp"><h4 class="tittle two">See all</h4></a>
@@ -807,6 +812,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
+<script src="js/login.js"></script>
+<script src="js/functionUtility.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.js"></script>
 </body>

@@ -63,7 +63,7 @@ public class AccessServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String nextPage=null;
+		String nextPage="-1";
 		
 		AccountService accountService= new AccountService();
 	
@@ -80,20 +80,17 @@ public class AccessServlet extends HttpServlet {
 		 	HttpSession session= request.getSession(true);
 			session.setAttribute("loggeduser", utente.getUsername());
 			session.setMaxInactiveInterval(-1);
-			nextPage="/jsp/loggedHome.jsp";
-
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-			dispatcher.forward(request, response);
+			
+			response.setContentType("text/html");
+			response.getWriter().print(1);
+			
 			return;
 	    	}
 		else
 		 {
-			nextPage="/jsp/login.jsp";
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
 			
-			request.setAttribute("wronglog", "wrong");
-			
-			dispatcher.forward(request, response);
+			response.setContentType("text/html");
+			response.getWriter().print(0);
 			return;
 		 }
 		}
@@ -113,40 +110,21 @@ public class AccessServlet extends HttpServlet {
 			System.out.println(utente.getPassword());
 			if(!accountService.validaDati(utente, request.getParameter("pswrepeat") ))
 				{
-				nextPage="/jsp/login.jsp"; 
 				
 				request.setAttribute("wrongreg", "controlla i dati inseriti");
-				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-				dispatcher.forward(request, response);
+				response.getWriter().print(0);
+			
 				return;
 				}
 			
-	
-	    	//credenziali.setUsername(utente.getUsername());
-			//credenziali.setPassword(request.getParameter("psw")); lo metto sopra
-	
-		/*	if(!accountService.validaCredenziali(credenziali, request.getParameter("pswrepeat"))) 
-				{
-				nextPage="/jsp/login.jsp"; 
-				
-				request.setAttribute("wrongreg", "errore campi password");
-				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-				dispatcher.forward(request, response);
-				return;
-				}
-			*/	
 			boolean done=accountService.registra(utente);//, credenziali);
 			
 			if(!done)
 				{
-				nextPage="/jsp/login.jsp";  
 				
 				request.setAttribute("wrongreg", "utente gia' registrato");
-
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-				dispatcher.forward(request, response);
+				response.getWriter().print(-1);
+				
 				return;
 				}
 			else
@@ -155,9 +133,8 @@ public class AccessServlet extends HttpServlet {
 				session.setAttribute("loggeduser", utente.getUsername());
 				session.setMaxInactiveInterval(-1);
 				
-				nextPage="/jsp/loggedHome.jsp";
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-				dispatcher.forward(request, response);
+				response.getWriter().print(1);
+				
 				return;
 				}
 			
@@ -194,26 +171,6 @@ public class AccessServlet extends HttpServlet {
 			
 			
 		}//checkuser
-		else if(request.getParameter("action").equals("adminlogin"))
-		{
-	
-			String usr =request.getParameter("usr");
-			String psw = request.getParameter("psw");
-			
-			if(usr.equals("admin") && psw.equals("admin"))
-			   nextPage="/jsp/adminVoti.jsp";
-			else
-			{
-				nextPage="/jsp/home.jsp";
-			request.setAttribute("wronglogin", "wrong");
-			}
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-			dispatcher.forward(request, response);
-			
-			return;
-			
-		}
 
 	}
 	
