@@ -218,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											 </ul>	
 											</div>
 											<div class="col-md-4 login-pop"> 
-												<div id="loginpop"> <label id="labelBenvenuto" style="display:none" for="text">Ciao</label>
+												<div id="loginpop"> <label id="labelBenvenuto" style="display:none" for="text">Ciao <%= session.getAttribute("loggeduser") %> </label>
 																	<a href="#" style="display:none" id="logoutButton" onclick="logoutuser();"><span>Logout<i class="arrow glyphicon glyphicon-chevron-right" ></i></span></a>
 																	<a href="#" id="loginButton"><span>Login <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a>
 																  <a id ="signinButton" class="top-sign" href="#" data-toggle="modal" data-target="#myModal5"><i class="fa fa-sign-in"></i></a>
@@ -346,7 +346,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									
 									caricaNuoveUscite();
 									controlloLogin();
-								
+									var usernamelog = '<%= session.getAttribute("loggeduser") %>';
+									alert(usernamelog);
 									
 									});
 							</script>		
