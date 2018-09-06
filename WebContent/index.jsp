@@ -140,8 +140,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								    		<input type="text" value="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">	-->
 											<input type="password" value="Password" id="pswreg" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="password" value="Password" id="pswrepeat" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
-											
-											<input type="submit" value="CREATE ACCOUNT" id="submitregbutton" >
+											<div id="statusreg" class="form-group"></div>
+											<input type="button" value="CREATE ACCOUNT" id="submitregbutton" onclick="registraUtente();" style="display:none" >
 										</form>
 									</div>
 									<div class="clearfix"></div>								
@@ -219,7 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 											<div class="col-md-4 login-pop"> 
 												<div id="loginpop"> <label id="labelBenvenuto" style="display:none" for="text">Ciao</label>
-																	<a href="#" style="display:none" id="logoutButton"><span>Logout<i class="arrow glyphicon glyphicon-chevron-right"></i></span></a>
+																	<a href="#" style="display:none" id="logoutButton" onclick="logoutuser();"><span>Logout<i class="arrow glyphicon glyphicon-chevron-right" ></i></span></a>
 																	<a href="#" id="loginButton"><span>Login <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a>
 																  <a id ="signinButton" class="top-sign" href="#" data-toggle="modal" data-target="#myModal5"><i class="fa fa-sign-in"></i></a>
 														<div id="loginBox">   
@@ -345,13 +345,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									//$("#b-search").hide();
 									
 									caricaNuoveUscite();
+									controlloLogin();
+								
 									
 									});
 							</script>		
 					<!--//pop-up-box -->
 						<div class="albums">
 								<div class="tittle-head">
-									<h3 class="tittle">New Releases DIVENTERA' NUOVE USCITE <span class="new">New</span></h3>
+									<h3 class="tittle">Ultimi brani Aggiunti <span class="new">New</span></h3>
 									<a href="index.jsp"><h4 class="tittle">See all</h4></a>
 									<div class="clearfix"> </div>
 								</div>

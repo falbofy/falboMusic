@@ -14,6 +14,7 @@ public interface BranoDAO {
 	public List<Brano> getPreferitibyUtente(String utente);
 	public List<Brano> getAscoltibyUtente(String utente);
 	public List<Brano> getBraniByPlaylist(String playlist);
+	public List<Brano> getUtimiBraniInseriti();
 	
 	public int insBrano(Brano brano);
 	

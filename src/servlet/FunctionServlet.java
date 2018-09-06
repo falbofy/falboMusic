@@ -47,9 +47,21 @@ public class FunctionServlet extends HttpServlet {
 		
 		PrintWriter out= response.getWriter();
 		
-		 if(request.getParameter("action").equals("ultimeuscite"))
+		 if(request.getParameter("action").equals("ultimiinseriti"))
 			{
 			
+			 BraniService braniservice = new BraniService();
+			 List<Brano> brani= braniservice.ultimiBraniInseriti();
+			 //System.out.println(brani.toString());
+			 Gson gson=new Gson();
+				String risjson= gson.toJson(brani);
+				response.setContentType("application/json");
+				out.println(risjson);
+				return;			
+			}
+		 else if(request.getParameter("action").equals("branibygenere"))
+		 {
+				
 			 SearchService searchservice = new SearchService();
 			 List<Brano> brani= searchservice.searchBraniByGenere("rock");
 			 System.out.println(brani.toString());

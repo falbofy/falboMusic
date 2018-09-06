@@ -479,4 +479,39 @@ public class BranoDaoJDBC implements BranoDAO {
 		return brani;
 	}
 
+	public List<Brano> getUtimiBraniInseriti(){
+		Connection connection= datasource.getConnection();
+		
+		List<Brano> brani= null;
+		
+		try {
+			String query = ""
+					+ "SELECT * "
+					+ "FROM brano as br "
+					+ "order by br.idBrano DESC	";
+			
+		PreparedStatement statement = connection.prepareStatement(query);
+		
+		ResultSet resultset = statement.executeQuery();
+		
+		if(resultset.next()){
+			brani=new ArrayList<Brano>();
+		
+			do{
+				brani.add(new Brano(resultset.getInt(1), resultset.getString(2), resultset.getInt(3), resultset.getString(4), resultset.getString(5), resultset.getString(6), resultset.getString(7)));
+			
+			}while(resultset.next() );
+		  } //fine if
+		}catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
+		return brani;
+	}
+	
 }

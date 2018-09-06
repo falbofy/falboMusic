@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 
 import model.Artista;
+import model.Brano;
 import persistence.DAOFactory;
 import persistenceDAO.ArtistaDAO;
 import persistenceDAO.BranoDAO;
@@ -23,5 +24,10 @@ public BraniService (){
 public List<Artista> getArtistaByIdBrano(int idbrano){
 	return artistadao.getArtistaByIdBrano(idbrano);
 }
+
+public List<Brano> ultimiBraniInseriti(){
+	return branodao.getUtimiBraniInseriti();
+}
+
 
 }

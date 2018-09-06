@@ -35,6 +35,10 @@ public class AccountService {
 	{
 		if(utente.getNome().isEmpty()||utente.getCognome().isEmpty()||utente.getUsername().isEmpty()||utente.getPassword().isEmpty())//||utente.getEmail().isEmpty())
 			return false;
+		System.out.println(utente.getNome());
+		System.out.println(utente.getCognome());
+		System.out.println(utente.getUsername());
+		System.out.println(utente.getPassword());
 		
 		if(!utente.getPassword().equals(pswrep))
 			return false;

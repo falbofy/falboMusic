@@ -40,7 +40,27 @@ function loginuser(){
 }  
 	//});
 
+function logoutuser(){
+		
+		     $.ajax({
+		    	 
+		           type : "POST",
+		 			url : "AccessServlet",
+		 			data: { "action" : 'logout',
 
+		 			},
+		     success: function (data) {
+		    	 location.reload();
+		      
+		     },//success
+		     	error: function(xhr, status, error) {
+		 
+		    	  alert(xhr.responseText);
+		    	}
+
+		     });//ajax
+}  
+	
 function controllauser(){
 	console.log("il valore di username is"+$("#usrreg").val());
 	/*if($.trim($("#usrreg").html())=='')
@@ -62,7 +82,7 @@ function controllauser(){
 			
 			if(data==1){
 			 $("#availability").text("username disponibile").css({ 'color': 'green', 'text-align': 'center', 'font-size': '100%' });
-			 
+			 $("#submitregbutton").show();
 			}
 			else if(data==0)
 			{
@@ -80,44 +100,39 @@ function controllauser(){
 
 
 
-	$("#registerForm").submit(function(evt) {
-		evt.preventDefault();
-		
+	/*$("#registerForm").submit(function(evt) {
+		evt.preventDefault();*/
+function registraUtente(){
 		     $.ajax({
 		    	 
 		           type : "POST",
 		 			url : "AccessServlet",
 		 			data: { "action" : 'register',
-		 					"uname" : $("#usrreg").val(),
+		 					"usr" : $("#usrreg").val(),
 		 					"psw" : $("#pswreg").val(),
 		 					"nome" : $("#nome").val(),
 		 					"cognome" : $("#cognome").val(),
+		 					"pswrepeat": $("#pswrepeat").val(),
 		 			},
 		     success: function (data) {
 		    	         
 		        if(data==1)
 		        	{
-		        	
+		        	$("#statusreg").text("Registrazione Effettuata").css({ 'color': 'green', 'text-align': 'center', 'font-size': '100%' });
 		        	console.log("registrazione effettuata");
 		        	afterLogin();
 			
 		        	}
 		        else if(data==0)
-		        	{
-		        	
-		        	console.log("errore");
-		        	}
-		        else if(data==2)
 	        	{
-	        	
-	        	console.log("username esistente");
-	        	}
-		        else if(data==3)
-	        	{
-	        	
+		        $("#statusreg").text("errore! controlla i dati inseriti").css({ 'color': 'red', 'font-size': '100%' });
 	        	console.log("errore! controlla i dati inseriti");
 	        	}
-		      
+		        else if(data==2)
+	        	{
+		        $("#statusreg").text("utente gia registrato").css({ 'color': 'red', 'font-size': '100%' });
+	        	console.log("errore! utente gia registrato");
+	        	}
 		     },//success
 		     	error: function(xhr, status, error) {
 		 
@@ -125,4 +140,32 @@ function controllauser(){
 		    	}
 
 		     });//ajax 
-	});
+}
+//	});
+
+function controlloLogin(){
+	
+		
+	     $.ajax({
+	    	 
+	           type : "GET",
+	 			url : "AccessServlet",
+	 			data: { "action" : 'islogged',
+
+	 			},
+	     success: function (data) {
+	    	 if(data==1)
+	        	{
+	        	afterLogin();	
+	        	}
+	       
+	      
+	     },//success
+	     	error: function(xhr, status, error) {
+	 
+	    	  alert(xhr.responseText);
+	    	}
+
+	     });//ajax 
+	
+}

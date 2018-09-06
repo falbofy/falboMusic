@@ -45,13 +45,28 @@ public class AccessServlet extends HttpServlet {
 				response.sendRedirect(request.getContextPath());
 				return;
 			}
-		 else if(request.getParameter("action").equals("loginpage"))
+		 else if(request.getParameter("action").equals("islogged"))
 		 {
-			 String nextPage="/jsp/login.jsp";
+			 
 
-			 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-			 dispatcher.forward(request, response);
-			 return;
+				String u= (String) request.getSession().getAttribute("loggeduser");
+				
+				if( u==null || u.isEmpty()){
+				 System.out.println("non sei loggato da servlet");
+				 response.setContentType("text/html");
+				 response.getWriter().print(0);
+				 
+				}
+				else{
+					System.out.println(" sei loggato da servlet");
+					response.setContentType("text/html");
+					response.getWriter().print(1);
+				}
+				
+				//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+				//dispatcher.forward(request, response);
+				return;
+			 
 
 		 }
 		
@@ -102,14 +117,12 @@ public class AccessServlet extends HttpServlet {
 			utente.setUsername(request.getParameter("usr"));
 			utente.setPassword(request.getParameter("psw"));
 			
-			/*System.out.println(request.getParameter("nome"));
-			System.out.println(request.getParameter("psw"));
-			System.out.println(utente.getUsername());
-			System.out.println(utente.getPassword());*/
+			
+			
 			if(!accountService.validaDati(utente, request.getParameter("pswrepeat") ))
 				{
 				
-				response.getWriter().print(3);
+				response.getWriter().print(0);
 			
 				return;
 				}
@@ -120,7 +133,7 @@ public class AccessServlet extends HttpServlet {
 				{
 				
 				request.setAttribute("wrongreg", "utente gia' registrato");
-				response.getWriter().print(-1);
+				response.getWriter().print(2);
 				
 				return;
 				}
