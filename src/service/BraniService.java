@@ -29,5 +29,13 @@ public List<Brano> ultimiBraniInseriti(){
 	return branodao.getUtimiBraniInseriti();
 }
 
+public List<Artista> getAllArtisti(){
+	return artistadao.getArtisti();
+}
+
+public List<Brano> getAllBrani(){
+	return branodao.getBrani();
+}
+
 
 }

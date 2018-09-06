@@ -7,4 +7,5 @@ public interface ArtistaDAO {
 	
  public Artista getArtistaByAlias(String alias);
  public List<Artista> getArtistaByIdBrano(int id);
+ public List<Artista> getArtisti();
 }

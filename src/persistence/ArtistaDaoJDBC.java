@@ -100,5 +100,43 @@ public class ArtistaDaoJDBC implements ArtistaDAO {
 		}
 		return artisti;
 	}
+	
+	 public List<Artista> getArtisti(){
+		 Connection connection= datasource.getConnection();
+			
+			List<Artista> artisti= null;
+			
+			try {
+				String query = ""
+						+ "SELECT * "
+						+ "FROM artista "
+						+  " ";
+				
+			PreparedStatement statement = connection.prepareStatement(query);
+			
+			
+			ResultSet resultset = statement.executeQuery();
+			
+			if(resultset.next()){
+				artisti=new ArrayList<Artista>();
+			
+				do{
+					artisti.add(new Artista(resultset.getInt(1), resultset.getString(2), resultset.getString(3), resultset.getString(4), resultset.getString(5), resultset.getString(6)));
+					
+				}while(resultset.next());
+			
+			  } //fine if
+			}catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			} finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new RuntimeException(e.getMessage());
+				}
+			}
+			return artisti;
+		}	 
+	 
 
 }
