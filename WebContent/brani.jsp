@@ -23,10 +23,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery-2.1.4.js"></script>
 <script src="js/functionUtility.js"></script>
 <script src="js/login.js"></script>
+<script> src="js/APIyoutube.js"</script>
+ <script>
+
+  function apriModal() {
+	 
+	  $('.modalVideo').modal('show');
+	  
+  }
+  </script>
+  
 <script>
 
+//2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
 
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+//3. This function creates an <iframe> (and YouTube player)
+// after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+player = new YT.Player('player', {
+// height: '360',
+//  width: '640',
+ videoId: '' ,
+ events: {
+   'onReady': onPlayerReady,
+   'onStateChange': onPlayerStateChange
+ }
+});
+}
+
+//4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+event.target.playVideo();
+}
+
+//5. The API calls this function when the player's state changes.
+// The function indicates that when playing a video (state=1),
+// the player should play for six seconds and then stop.
+var done = false;
+function onPlayerStateChange(event) {
+if (event.data == YT.PlayerState.PLAYING && !done) {
+ setTimeout(stopVideo, 6000);
+ done = true;
+}
+}
+function stopVideo() {
+player.stopVideo();
+}
 </script>
 </head> 
 	
@@ -142,24 +190,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									});
 									//$("#b-search").hide();
 									
-									caricaNuoveUscite();
+									//caricaNuoveUscite();
 									controlloLogin();
-									caricaArtisti();
-									
-									
+									caricaBrani();
+									//apriModal();
 									});
 							</script>		
 				
-				<div id="myTabContent" class="tab-content">
-								  <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-									<div class="browse-inner">
+				<div class="browse">
 								 	 <!-- /agileits -->
 								
-									<div class="col-md-3 artist-grid">
+								<!--  	<div class="col-md-3 artist-grid">
 										<a  href="single.html"><img src="images/a3.jpg" title="allbum-name"></a>
 										 <a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
 												<a class="art" href="single.html">Sukhwinder singh</a>
-										</div>
+										</div>-->
 							</div>
 						
 		
@@ -169,6 +214,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 						
  	 <!-- /w3l-agile -->
+					</div>
+					<div id="modalyoutube">
+					<div class="modal modalVideo" tabindex="-1" role="dialog">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title">Modal title</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body">
+						      
+						      <div class="row">
+    
+	   						 <div class = "col-xs-12" id="player">
+							</div>
+						      
+						      </div>
+				
+						    </div>
+						  </div>
+						</div>
 					</div>
 
         <!--footer section start-->

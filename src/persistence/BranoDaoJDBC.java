@@ -523,7 +523,6 @@ public class BranoDaoJDBC implements BranoDAO {
 			String query = ""
 					+ "SELECT * "
 					+ "FROM brano  "
-					+ "WHERE br.idBrano IN 	SELECT ca.brano	 	 	"
 					+ " ";
 			
 		PreparedStatement statement = connection.prepareStatement(query);

@@ -7,14 +7,14 @@ public class Artista {
 int idArtista;
 String nome;
 String cognome;
-String alias;
 String nazionalita;
+String alias;
 String linkImg;
 //List<Utente> follower;
 
 public Artista(){}
 
-public Artista(int idArtista, String nome, String cognome, String alias, String nazionalita, String linkImg ){//,List<Utente> follower) {
+public Artista(int idArtista, String nome, String cognome, String nazionalita, String alias, String linkImg ){//,List<Utente> follower) {
 	super();
 	this.idArtista = idArtista;
 	this.nome = nome;

@@ -140,15 +140,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									});
 									//$("#b-search").hide();
 									
-									caricaNuoveUscite();
+									//caricaNuoveUscite();
 									controlloLogin();
-									
+									caricaArtisti();
 									
 									});
 							</script>		
 				
 				
-						
+						<div id="myTabContent" class="tab-content">
+								  <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+									<div class="browse-inner">
 		
 													 <!--//music-right-->
 											<div class="clearfix"></div>

@@ -37,5 +37,4 @@ public List<Brano> getAllBrani(){
 	return branodao.getBrani();
 }
 
-
 }
