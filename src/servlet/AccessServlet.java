@@ -42,7 +42,6 @@ public class AccessServlet extends HttpServlet {
 		 if(request.getParameter("action").equals("logout"))
 			{
 				request.getSession().invalidate();
-				//nextPage = "/index.jsp";
 				response.sendRedirect(request.getContextPath());
 				return;
 			}
@@ -101,18 +100,16 @@ public class AccessServlet extends HttpServlet {
 			utente.setNome(request.getParameter("nome"));
 			utente.setCognome(request.getParameter("cognome"));
 			utente.setUsername(request.getParameter("usr"));
-			//utente.setEmail(request.getParameter("mail"));
 			utente.setPassword(request.getParameter("psw"));
 			
-			System.out.println(request.getParameter("nome"));
+			/*System.out.println(request.getParameter("nome"));
 			System.out.println(request.getParameter("psw"));
 			System.out.println(utente.getUsername());
-			System.out.println(utente.getPassword());
+			System.out.println(utente.getPassword());*/
 			if(!accountService.validaDati(utente, request.getParameter("pswrepeat") ))
 				{
 				
-				request.setAttribute("wrongreg", "controlla i dati inseriti");
-				response.getWriter().print(0);
+				response.getWriter().print(3);
 			
 				return;
 				}
@@ -147,6 +144,7 @@ public class AccessServlet extends HttpServlet {
 		}
 		else if(request.getParameter("action").equals("checkusername"))
 		{
+			System.out.println("sono in chechusername");
 			String pacchetto = request.getParameter("datapkt");
 			
 			if (pacchetto != null) {

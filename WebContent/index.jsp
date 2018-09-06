@@ -23,6 +23,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery-2.1.4.js"></script>
 
 <script src="js/functionUtility.js"></script>
+<script src="js/login.js"></script>
+<script>
+
+
+
+</script>
 </head> 
     	 <!-- /w3layouts-agile -->
  <body class="sticky-header left-side-collapsed"  > <!-- onload="initMap()">  -->
@@ -121,20 +127,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</ul>
 									</div> -->	
 									<div class="sign-right">
-										<form action="AccessServlet?action=register" method="post">
+										<form id=registerForm method="post">
 
 											<h3>Create your account </h3>
 											
-											<input type="text" value="Name" name="nome" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-											<input type="text" value="Cognome" name="cognome" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-											<input type="text" value="Username" name="usr"onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-					
+											<input type="text" value="Name" id="nome" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+											<input type="text" value="Cognome" id="cognome" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+											<input type="text" value="Username" id="usrreg" name="usr"onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="" onchange="controllauser();">
+											<div id="availability" class="form-group"></div>
+											
 									<!--	<input type="text" value="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
 								    		<input type="text" value="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">	-->
-											<input type="password" value="Password" name="psw" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<input type="password" value="Password" name="pswrepeat" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
+											<input type="password" value="Password" id="pswreg" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
+											<input type="password" value="Password" id="pswrepeat" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
 											
-											<input type="submit" value="CREATE ACCOUNT" >
+											<input type="submit" value="CREATE ACCOUNT" id="submitregbutton" >
 										</form>
 									</div>
 									<div class="clearfix"></div>								
@@ -210,11 +217,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														
 											 </ul>	
 											</div>
-											<div class="col-md-4 login-pop">
-												<div id="loginpop"> <a href="#" id="loginButton"><span>Login <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a>
-																	<!--<div class="col-md-6"><a href="#" id="loginButton"><span>Registrati <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a></div>-->
-																    <a class="top-sign" href="#" data-toggle="modal" data-target="#myModal5"><i class="fa fa-sign-in"></i></a>
-														<div id="loginBox">  
+											<div class="col-md-4 login-pop"> 
+												<div id="loginpop"> <label id="labelBenvenuto" style="display:none" for="text">Ciao</label>
+																	<a href="#" style="display:none" id="logoutButton"><span>Logout<i class="arrow glyphicon glyphicon-chevron-right"></i></span></a>
+																	<a href="#" id="loginButton"><span>Login <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a>
+																  <a id ="signinButton" class="top-sign" href="#" data-toggle="modal" data-target="#myModal5"><i class="fa fa-sign-in"></i></a>
+														<div id="loginBox">   
 												<!--<form action="AccessServlet?action=login" method="post" id="loginForm"> -->
 												<form  id="loginForm">
 																	<fieldset id="body">
@@ -226,7 +234,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																				<label for="password">Password</label>
 																				<input type="password" name="psw" id="psw">
 																		 </fieldset>
-																		<input type="submit" id="login" value="Sign in" >
+																		<input type="button" id="login" value="Sign in" onclick="loginuser();">
 																		<!--  <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label> -->
 																	</fieldset>
 																<span><a href="#">Forgot your password?</a></span>
@@ -335,6 +343,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										mainClass: 'my-mfp-zoom-in'
 									});
 									//$("#b-search").hide();
+									
 									caricaNuoveUscite();
 									
 									});
@@ -803,7 +812,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>   -->
         <!--footer section start-->
 			<footer>
-			   <p>&copy 2018 Falbo Gianluca </p>
+			   <p>copy 2018 Falbo Gianluca </p>
 			</footer>
         <!--footer section end-->
  	 <!-- /w3l-agile -->
@@ -812,7 +821,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
-<script src="js/login.js"></script>
+<!-- <script src="js/login.js"></script> -->
 <script src="js/functionUtility.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.js"></script>

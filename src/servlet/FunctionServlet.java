@@ -21,6 +21,7 @@ import model.Brano;
 import model.Utente;
 import service.AccountService;
 import service.BraniService;
+import service.PreferitiService;
 import service.SearchService;
 
 /**
@@ -70,7 +71,28 @@ public class FunctionServlet extends HttpServlet {
 					String risjson= gson.toJson(artisti);
 					response.setContentType("application/json");
 					out.println(risjson);
-					return;			
+					return;				
+		 }
+		 else if(request.getParameter("action").equals("addascolto"))
+		 {	
+			 response.setContentType("text/html");
+			 String u= (String) request.getSession().getAttribute("loggeduser");
+			
+				if( u==null || u.isEmpty()){
+					System.out.println("ho ascoltato il brano da non loggato");
+					response.getWriter().print(2);
+					return;
+				}
+				else{
+				PreferitiService preferitiservice= new PreferitiService();
+				System.out.println("id brano da parametro="+request.getParameter("brano"));
+				int idbrano= Integer.parseInt(request.getParameter("brano"));
+				preferitiservice.addAscolto(idbrano, u);
+				System.out.println("ho ascoltato il brano da loggato");
+				response.getWriter().print(1);
+				return; 
+	
+				}
 				
 		 }
 		

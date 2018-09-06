@@ -68,8 +68,8 @@ public class BranoDaoJDBC implements BranoDAO {
 			String queryverifica = ""
 					+ "SELECT * "
 					+ "FROM ascoltare "
-					+ "WHERE titolo =? and utente=?";
-			
+					+ "WHERE brano =? and utente=?";
+			//System.out.println("queri verifica"+queryverifica);
 		PreparedStatement verificaStatement = connection.prepareStatement(queryverifica);
 		verificaStatement.setInt(1, brano);
 		verificaStatement.setString(2, utente);
@@ -80,28 +80,29 @@ public class BranoDaoJDBC implements BranoDAO {
 		  {
 			int qnt= resultset.getInt("qnt");
 			qnt++;
-			
-			String update ="UPDATE 	ascoltare (utente, brano, qnt) "
-						+  "SET 	qnt = ?"
-						+  "WHERE 	utente=? and brano=?";
-					
+			System.out.println("qnt"+qnt);
+			String update ="UPDATE ascoltare "
+						+  "SET qnt = ? "
+						+  "WHERE utente = ? and brano=?;";
+
 			PreparedStatement statement =connection.prepareStatement(update);
 			statement.setInt(1, qnt);
-			verificaStatement.setInt(1, brano);
-			verificaStatement.setString(2, utente);
+			statement.setString(2, utente);
+			statement.setInt(3, brano);
 			
+			System.out.println("update qnt"+statement);
 			return statement.executeUpdate();
 			
 		  }else{
 			 
 			  String insert ="INSERT INTO ascoltare (utente, brano, qnt) "
 						+ " VALUES (?,?,?)";
-
+			  	
 				PreparedStatement statement =connection.prepareStatement(insert);
-				verificaStatement.setInt(1, brano);
-				verificaStatement.setString(2, utente);
+				statement.setString(1, utente);
+				statement.setInt(2, brano);
 				statement.setInt(3, 1);
-
+				//System.out.println("queri di add ascolto"+statement);
 				return statement.executeUpdate();
 			
 		  }

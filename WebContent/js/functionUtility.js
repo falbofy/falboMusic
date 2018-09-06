@@ -17,7 +17,7 @@ function caricaNuoveUscite(){
     	console.log(data);
     	for(var i=0; i<data.length;i++){
     		$(".albums").append('<div class="col-md-3 content-grid">'+
-										'<a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src="'+data[i]["linkImg"]+'" title="allbum-name"></a>'+
+										'<a class="play-icon popup-with-zoom-anim" href="#" onclick="PlayBrano('+data[i]["idBrano"]+');"><img src="'+data[i]["linkImg"]+'" title="allbum-name"></a>'+
 										'<a class="button play-icon popup-with-zoom-anim" href="#" onclick="PlayBrano('+data[i]["idBrano"]+');">'+data[i]["titolo"]+'</a><div class="inner-info"><h5>'+data[i]["genere"]+'</h5></div>'+
 										'</div>'
     			);
@@ -36,14 +36,19 @@ function caricaNuoveUscite(){
 function afterLogin(){
 	
 	$("#sb-search").show();
+	$("#labelBenvenuto").show();
+	$("#loginButton").hide();
+	$("#signinButton").hide();
+	
+	
 	console.log("sono in afterlogin");
 	//$(".albums").html("");
 	
 }
 
-function Playbrano(idbrano){
+function PlayBrano(idbrano){
 	
-	console.log("sono nel load");
+	console.log("sono in playbrano");
 	//$(".albums").html("");
 	
 	  $.ajax({
@@ -52,13 +57,21 @@ function Playbrano(idbrano){
           type : "GET",
 			url : "FunctionServlet",
 			data: { "action" : 'addascolto',
-					"brano" : 'idbrano'
+					"brano" : idbrano
 			
 					
 			},
     success: function (data) {
     	console.log("sono in playbrano");
-    	
+    	if(data==1)
+    	{
+    	alert("ascolto da loggato")
+    	}
+    else if(data==0)
+    	{
+    	alert("ascolto da non loggato")
+    	}
+  
     },//success
     	error: function(xhr, status, error) {
 
