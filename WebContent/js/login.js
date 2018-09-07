@@ -19,7 +19,10 @@ function loginuser(){
 		        	{
 		        	
 		        	console.log("sono inlogin effettuato");
+		        	
 		        	afterLogin();
+		        	
+		        	
 			
 		           /* $("#b1").remove();//prop("disabled",true);
 		        	$("#goback").show();*/

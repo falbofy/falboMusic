@@ -296,6 +296,7 @@ player.stopVideo();
 
 								caricaNuoveUscite();
 								controlloLogin();
+								caricaConsigliati();
 
 							});
 						</script>
@@ -364,12 +365,13 @@ player.stopVideo();
 						<div class="albumss second">
 							<div class="tittle-head">
 								<h3 class="tittle">
-									Discover DIVENTERA' CONSIGLIATI <span class="new">View</span>
+									Brani Consigliati <span class="new">Love it</span>
 								</h3>
-								<a href="index.jsp"><h4 class="tittle two">See all</h4></a>
+								
 								<div class="clearfix"></div>
 							</div>
-							<div class="col-md-3 content-grid">
+							<div class="consigliati"></div>
+					<!--  		<div class="col-md-3 content-grid">
 								<a href="single.html"><img src="images/v11.jpg"
 									title="allbum-name"></a>
 								<div class="inner-info">
@@ -424,7 +426,7 @@ player.stopVideo();
 								<div class="inner-info">
 									<a href="single.html"><h5>Pop</h5></a>
 								</div>
-							</div>
+							--></div>
 							<div class="clearfix"></div>
 						</div>
 						<!--//discover-view-->
